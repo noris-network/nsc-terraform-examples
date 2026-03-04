@@ -1,41 +1,5 @@
 variable "external_network_name" {
-  description = "Name des externen (Public) Networks für Floating IPs"
-  type        = string
-  default     = "public"
-}
-
-variable "image_name" {
-  description = "Glance Image Name"
-  type        = string
-  default     = "Ubuntu 22.04"
-}
-
-variable "flavor_name" {
-  description = "Nova Flavor Name"
-  type        = string
-  default     = "m1.small"
-}
-
-variable "ssh_public_key_path" {
-  description = "Pfad zu deinem SSH Public Key"
-  type        = string
-  default     = "~/.ssh/id_ed25519.pub"
-}
-
-variable "instance_name" {
-  description = "Name der VM"
-  type        = string
-  default     = "tf-demo-1"
-}
-
-variable "cidr" {
-  description = "CIDR des privaten Subnetzes"
-  type        = string
-  default     = "10.10.10.0/24"
-}
-
-variable "external_network_name" {
-  default = "external"  # Anleitung verwendet "external"
+  default = "external"
 }
 
 variable "image_name" {
@@ -43,11 +7,12 @@ variable "image_name" {
 }
 
 variable "flavor_name" {
-  default = "SCS-1V-2"  # Diskless Flavor wie in Anleitung
+  default = "SCS-1V-2"
 }
 
 variable "ssh_public_key_path" {
-  default = "~/.ssh/id_rsa.cloud.pub"  # Passe an, generiere ggf. mit ssh-keygen
+  type    = string
+  default = "id_rsa.cloud.pub"
 }
 
 variable "instance_name" {
@@ -55,7 +20,7 @@ variable "instance_name" {
 }
 
 variable "subnet_cidr" {
-  default = "192.168.42.0/24"  # Genau wie Anleitung
+  default = "192.168.42.0/24"
 }
 
 variable "network_name" {
@@ -79,9 +44,23 @@ variable "keypair_name" {
 }
 
 variable "boot_volume_size" {
-  default = 50  # 50 GB Root Volume
+  default = 50
 }
 
 variable "volume_type" {
-  default = "rbd_fast"  # Wie in Anleitung
+  default = "rbd_fast"
 }
+
+variable "enable_extra_volume" { default = false }
+variable "extra_volume_size" { default = 10 }
+
+variable "enable_swift" { default = false }
+variable "enable_lb" { default = false }
+variable "enable_ec2_creds" { default = false }
+variable "enable_luks_vm" { default = false }
+variable "enable_glance_upload" { default = false }
+
+variable "luks_volume_size" { default = 10 }
+variable "s3_bucket_name" { default = "example-bucket" }
+variable "resize_flavor" { default = "SCS-2V-4" }
+variable "enable_resize" { default = false }
