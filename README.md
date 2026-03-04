@@ -10,3 +10,7 @@ This repository implements the complete noris Sovereign Cloud (nSC) Getting Star
 - ✅ OVN Loadbalancer: noris native (no Octavia/Amphora)
 - ✅ Volume Attach: Extra 10GB rbd_fast (hotplug, no VM destroy)
 - ✅ noris-specific: SCS Flavors, rbd_fast, nbg region
+
+## Usage
+
+Please make sure to place the clouds.yaml in `~/.config/openstack/clouds.yaml`
